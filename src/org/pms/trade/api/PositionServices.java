@@ -6,6 +6,8 @@ import org.pms.trade.entity.PositionEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Tag(name = "PositionServices")
 @RestController
 @RequestMapping("/PositionServices")
@@ -19,4 +21,7 @@ public interface PositionServices {
     @GetMapping("/getPosition")
     public PositionEntity getPosition(@RequestParam("transactionRef") String transactionRef);
 
+
+    @GetMapping("/getAllPositions")
+    public List<PositionEntity> getAllPositions();
 }
