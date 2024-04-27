@@ -18,4 +18,8 @@ public class PositionService {
         return repository.save(position);
     }
 
+      public List<PositionEntity> getAllPositions() {
+        return positionRepository.findAll();
+    }
+
 }
