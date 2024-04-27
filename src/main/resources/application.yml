@@ -18,9 +18,9 @@ spring:
 
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/default_db
+    url: jdbc:mysql://localhost:3306/pms
     username: root
-    password: password
+    password: MyDBAdmin
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true

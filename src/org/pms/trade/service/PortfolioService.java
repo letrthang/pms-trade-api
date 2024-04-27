@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface PortfolioService {
     List<PortfolioDto> getAllPortfolios();
-    int getPortfolioValue();
+    int getPortfolioValue(String portfolioNumber);
+
+    double getCurrentPerformance(String portfolioNumber);
 
 }

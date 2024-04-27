@@ -18,18 +18,23 @@ import java.util.List;
  */
 @CrossOrigin("*")
 @AllArgsConstructor
-@RequestMapping("/api/portfolios")
 @RestController
 public class PortfolioController {
     private final PortfolioService portfolioService;
-    @GetMapping
+    @GetMapping("/portfolios")
     public ResponseEntity<List<PortfolioDto>> getAllPortfolios(){
         List<PortfolioDto> employees = portfolioService.getAllPortfolios();
         return ResponseEntity.ok(employees);
     }
     @GetMapping("/getPortfolioValue")
     public ResponseEntity getPortfolioValue(@RequestParam(name = "portfolioNumber", required = false) String portfolioNumber){
-        int portfolioValue = portfolioService.getPortfolioValue();
+        int portfolioValue = portfolioService.getPortfolioValue(portfolioNumber);
+        return ResponseEntity.ok(portfolioValue);
+    }
+
+    @GetMapping("/getCurrentPerformance")
+    public ResponseEntity getCurrentPerformance	(@RequestParam(name = "portfolioNumber", required = false) String portfolioNumber){
+        int portfolioValue = portfolioService.getPortfolioValue(portfolioNumber);
         return ResponseEntity.ok(portfolioValue);
     }
 

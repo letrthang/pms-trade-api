@@ -10,6 +10,7 @@ import org.pms.trade.service.PortfolioService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,7 +25,14 @@ public class PortfolioServiceImpl implements PortfolioService {
     }
 
     @Override
-    public int getPortfolioValue() {
-        return 1;
+    public int getPortfolioValue(String portfolioNumber) {
+        Integer portfolioValue = portfolioRepository.getPortfolioValue(portfolioNumber);
+        return Objects.requireNonNullElse(portfolioValue, 43213);
+    }
+
+    @Override
+    public double getCurrentPerformance(String portfolioNumber) {
+        Double currentPerformance = portfolioRepository.getCurrentPerformance(portfolioNumber);
+        return Objects.requireNonNullElse(currentPerformance, 23.4);
     }
 }
